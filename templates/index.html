@@ -1,0 +1,268 @@
+{% from "_macros.html" import icon, scene, field, textarea, select, card %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta name="theme-color" content="#070709">
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"{{ site.name }}","slogan":"{{ site.tagline }}","description":"{{ site.description }}"}
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="{{ site.name }} home"><span class="logo-mark">{{ icon('bolt', 18) }}</span>{{ site.name }}</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav id="menu" class="menu" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#solution">Solution</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#how">How it works</a>
+      <a href="#partners">Partners</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-sm" href="#book">Book a visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow">{{ site.tagline }}</p>
+        <h1>Your Journey Deserves a <em>Better Pause.</em></h1>
+        <p class="lead">Experience the future of EV charging with wireless technology, premium comfort, dining, and shopping — all in one destination.</p>
+        <div class="cta">
+          <a class="btn" href="#amenities">Explore Our Experience</a>
+          <a class="btn btn-ghost" href="#book">Book Your Charging Visit</a>
+        </div>
+        <p class="note">Preview website. Charging, bookings and payments are not live yet.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 640 420" class="hero-svg">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101a3a"/><stop offset="1" stop-color="#070709"/></linearGradient>
+            <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8975a"/><stop offset=".5" stop-color="#ecd9a0"/><stop offset="1" stop-color="#b8975a"/></linearGradient>
+            <radialGradient id="pad" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ecd9a0" stop-opacity=".8"/><stop offset="1" stop-color="#ecd9a0" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="640" height="420" rx="28" fill="url(#sky)"/>
+          <g stroke="#d8b765" stroke-opacity=".5" fill="none" stroke-width="1.5">
+            <path d="M40 250V120l60-30h200l40 30v130"/><path d="M60 250V140h240v110"/>
+            <path d="M80 160h60v70H80zM160 160h60v70h-60zM240 160h40v70h-40z" stroke-opacity=".35"/>
+            <path d="M360 250V70h20v180M420 250V110h20v140" stroke-opacity=".35"/>
+          </g>
+          <g fill="#d8b765" fill-opacity=".18"><rect x="84" y="164" width="52" height="62"/><rect x="164" y="164" width="52" height="62"/></g>
+          <path d="M0 330h640v90H0z" fill="#0b0b10"/>
+          <ellipse cx="320" cy="350" rx="190" ry="28" fill="url(#pad)" class="pulse"/>
+          <ellipse cx="320" cy="350" rx="120" ry="16" fill="none" stroke="url(#gold)" stroke-width="2"/>
+          <ellipse cx="320" cy="350" rx="70" ry="9" fill="none" stroke="url(#gold)" stroke-width="2" class="pulse"/>
+          <g class="car">
+            <path d="M170 335c0-30 10-42 40-52l50-30c18-10 40-14 70-14s58 4 78 14l44 28c34 10 56 24 56 54z" fill="#12121a" stroke="url(#gold)" stroke-width="2"/>
+            <path d="M262 258c24-8 50-12 76-12 24 0 44 4 60 12l30 20H238z" fill="#0d1530" stroke="#d8b765" stroke-opacity=".6"/>
+            <circle cx="240" cy="338" r="26" fill="#070709" stroke="url(#gold)" stroke-width="3"/><circle cx="240" cy="338" r="10" fill="#d8b765" fill-opacity=".5"/>
+            <circle cx="410" cy="338" r="26" fill="#070709" stroke="url(#gold)" stroke-width="3"/><circle cx="410" cy="338" r="10" fill="#d8b765" fill-opacity=".5"/>
+            <path d="M470 305h22" stroke="#ecd9a0" stroke-width="4" stroke-linecap="round"/>
+          </g>
+          <g class="sparks" stroke="#ecd9a0" stroke-linecap="round" stroke-width="2"><path d="M300 372v14M320 376v18M340 372v14"/></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <header class="sec-head reveal"><p class="eyebrow">About us</p><h2>Where charging becomes hospitality</h2>
+        <p>The Velvet Pause is a premium EV charging hub that transforms ordinary charging stops into comfortable, convenient and enjoyable experiences, combining wireless charging technology with lounges, dining, shopping and workspaces.</p></header>
+      <div class="grid g3">
+        <article class="panel reveal"><h3>Our Mission</h3><p>To transform EV charging into a comfortable, safe, and premium experience through innovative wireless charging technology and customer-focused amenities.</p></article>
+        <article class="panel reveal"><h3>Our Vision</h3><p>To become a trusted destination for premium EV charging and hospitality experiences.</p></article>
+        <article class="panel reveal"><h3>Our Purpose</h3><p>To make EV charging safer, more convenient and more enjoyable while encouraging sustainable transportation.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem" class="section alt">
+    <div class="wrap">
+      <header class="sec-head reveal"><p class="eyebrow">The problem we solve</p><h2>Charging should not feel like a chore</h2></header>
+      <div class="grid g3">{% for p in site.problems %}{{ card(p) }}{% endfor %}</div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section id="solution" class="section">
+    <div class="wrap">
+      <header class="sec-head reveal"><p class="eyebrow">Our solution</p><h2>A calmer, safer, more rewarding stop</h2>
+        <p>Features below are part of our roadmap and are labelled <span class="badge">Planned</span> until they are live.</p></header>
+      <div class="grid g3">{% for s in site.solutions %}{{ card(s, True) }}{% endfor %}</div>
+      <p class="disclaimer reveal">Charging speed and compatibility depend on the vehicle and the charging technology. Wireless charging requires compatible vehicles and equipment.</p>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section id="amenities" class="section alt">
+    <div class="wrap">
+      <header class="sec-head reveal"><p class="eyebrow">Explore our amenities</p><h2>Everything under one refined roof</h2>
+        <p>Concept illustrations. Photography of the real hub will replace them.</p></header>
+      <div class="grid g3">
+        {% for a in site.amenities %}
+        <article class="amen reveal">
+          <div class="amen-img">{{ scene(a.scene) }}<span class="amen-ico">{{ icon(a.icon, 22) }}</span></div>
+          <div class="amen-body"><h3>{{ a.title }}</h3><p>{{ a.text }}</p></div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="how" class="section">
+    <div class="wrap">
+      <header class="sec-head reveal"><p class="eyebrow">How it works</p><h2>Four simple steps</h2></header>
+      <ol class="steps">
+        {% for s in site.steps %}
+        <li class="step reveal"><span class="num">{{ loop.index }}</span><span class="card-ico">{{ icon(s.icon, 26) }}</span><h3>{{ s.title }}</h3><p>{{ s.text }}</p></li>
+        {% endfor %}
+      </ol>
+      <div class="demo reveal" aria-label="Charging progress demo">
+        <div class="demo-top"><strong>Charging progress preview</strong><span class="badge">Demo only</span></div>
+        <div class="bar"><span id="demo-bar"></span></div>
+        <div class="demo-meta"><span id="demo-pct">0%</span><span id="demo-temp">Pad temperature: normal</span></div>
+        <button class="btn btn-ghost btn-sm" id="demo-run" type="button">Run demo</button>
+      </div>
+      <p class="disclaimer reveal">Wireless charging requires compatible vehicles and equipment.</p>
+    </div>
+  </section>
+
+  <!-- CUSTOMERS -->
+  <section id="customers" class="section alt">
+    <div class="wrap">
+      <header class="sec-head reveal"><p class="eyebrow">Our customers</p><h2>Designed for people on the move</h2></header>
+      <div class="grid g3">{% for c in site.customers %}{{ card(c) }}{% endfor %}</div>
+      <ul class="chips reveal">{% for b in site.benefits %}<li>{{ icon('check', 16) }} {{ b }}</li>{% endfor %}</ul>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why" class="section">
+    <div class="wrap">
+      <header class="sec-head reveal"><p class="eyebrow">Why choose The Velvet Pause</p>
+        <h2>Wireless EV charging combined with premium lounges, dining, shopping, and a hassle-free charging experience.</h2></header>
+      <div class="grid g3">{% for w in site.why %}{{ card(w) }}{% endfor %}</div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners" class="section alt">
+    <div class="wrap split">
+      <div class="reveal">
+        <p class="eyebrow">Business and partnerships</p><h2>Build the future of charging with us</h2>
+        <p>We are inviting collaboration from:</p>
+        <ul class="plist">{% for p in site.partners %}<li><span class="card-ico sm">{{ icon(p.icon, 20) }}</span>{{ p.title }}</li>{% endfor %}</ul>
+      </div>
+      <form class="form reveal" id="partnership-form" data-kind="partnership" novalidate>
+        <h3>Partnership enquiry</h3>
+        {{ field('name', 'Your name', form='partnership', autocomplete='name') }}
+        {{ field('organisation', 'Organisation', form='partnership', autocomplete='organization') }}
+        {{ select('partner_type', 'I am a...', site.partner_types, form='partnership') }}
+        {{ field('email', 'Email', 'email', 'partnership', autocomplete='email') }}
+        {{ textarea('message', 'How would you like to collaborate?', 'partnership') }}
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Send enquiry</button>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="book" class="section">
+    <div class="wrap split">
+      <div class="reveal">
+        <p class="eyebrow">Booking</p><h2>Request your charging visit</h2>
+        <p>Tell us when and where you would like to visit. This is a request form for our launch preview.</p>
+        <div class="notice"><strong>Preview notice:</strong> bookings and payments are not live. Submitting this form does not reserve a slot or charge you.</div>
+      </div>
+      <form class="form reveal" id="booking-form" data-kind="booking" novalidate>
+        <h3>Booking request</h3>
+        {{ field('name', 'Customer name', form='booking', autocomplete='name') }}
+        {{ field('phone', 'Phone number', 'tel', 'booking', placeholder='+00 00000 00000', autocomplete='tel') }}
+        {{ field('email', 'Email address', 'email', 'booking', autocomplete='email') }}
+        {{ field('ev_model', 'EV model', form='booking', placeholder='e.g. your vehicle make and model') }}
+        {{ select('location', 'Preferred location', site.locations, form='booking') }}
+        {{ field('datetime', 'Date and time', 'datetime-local', 'booking') }}
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Submit booking request</button>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="reviews" class="section alt">
+    <div class="wrap">
+      <header class="sec-head reveal"><p class="eyebrow">Testimonials</p><h2>What guests may say</h2>
+        <p>Clearly marked sample testimonials. Replace with real customer feedback.</p></header>
+      <div class="grid g3">
+        {% for t in site.testimonials %}
+        <figure class="quote reveal"><span class="badge">Sample</span><blockquote>{{ t.text }}</blockquote><figcaption>{{ t.name }} <span>{{ t.role }}</span></figcaption></figure>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="wrap split">
+      <div class="reveal">
+        <p class="eyebrow">Contact</p><h2>Let us talk</h2>
+        <p class="muted">Placeholder details below. Edit them in <code>content.py</code>.</p>
+        <ul class="clist">
+          <li>{{ icon('mail', 20) }} <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></li>
+          <li>{{ icon('phone', 20) }} {{ site.contact.phone }}</li>
+          <li>{{ icon('pin', 20) }} {{ site.contact.address }}</li>
+          <li>{{ icon('clock', 20) }} {{ site.contact.hours }}</li>
+        </ul>
+        <div class="social">{% for s in site.social %}<a href="{{ s.url }}" aria-label="{{ s.name }}">{{ icon(s.icon, 20) }}</a>{% endfor %}</div>
+      </div>
+      <form class="form reveal" id="contact-form" data-kind="contact" novalidate>
+        <h3>Send an enquiry</h3>
+        {{ field('name', 'Your name', form='contact', autocomplete='name') }}
+        {{ field('email', 'Email', 'email', 'contact', autocomplete='email') }}
+        {{ textarea('message', 'Message', 'contact') }}
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Send message</button>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot-grid">
+    <div><a class="logo" href="#top"><span class="logo-mark">{{ icon('bolt', 18) }}</span>{{ site.name }}</a><p>{{ site.tagline }}</p>
+      <div class="social">{% for s in site.social %}<a href="{{ s.url }}" aria-label="{{ s.name }}">{{ icon(s.icon, 18) }}</a>{% endfor %}</div></div>
+    <nav aria-label="Footer"><h4>Explore</h4><a href="#about">About Us</a><a href="#solution">Our Services</a><a href="#amenities">Amenities</a><a href="#partners">Partnerships</a><a href="#contact">Contact Us</a></nav>
+    <nav aria-label="Legal"><h4>Legal</h4><a href="/privacy">Privacy Policy</a><a href="/terms">Terms and Conditions</a></nav>
+  </div>
+  <div class="wrap copy">&copy; <span id="year">2026</span> {{ site.name }}. Preview website: services described are planned unless stated otherwise.</div>
+</footer>
+
+<script src="/js/main.js" defer></script>
+</body>
+</html>

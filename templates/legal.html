@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page == 'privacy' %}Privacy Policy{% elif page == 'terms' %}Terms and Conditions{% else %}Page not found{% endif %} | {{ site.name }}</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap nav-in"><a class="logo" href="/">{{ site.name }}</a><a class="btn btn-sm" href="/">Back to home</a></div></header>
+<main class="section legal"><div class="wrap narrow">
+{% if page == 'privacy' %}
+  <h1>Privacy Policy</h1>
+  <p class="muted">Sample template. Have it reviewed by a legal professional before launch.</p>
+  <h3>What we collect</h3><p>When you use the forms on this website you may provide your name, phone number, email address, vehicle model and message. In this preview the data is validated but not stored.</p>
+  <h3>How we will use it</h3><p>Once services launch, details would be used to respond to enquiries and manage booking requests.</p>
+  <h3>Your choices</h3><p>You can ask us to access, correct or delete your information using the contact details on the home page.</p>
+{% elif page == 'terms' %}
+  <h1>Terms and Conditions</h1>
+  <p class="muted">Sample template. Have it reviewed by a legal professional before launch.</p>
+  <h3>Preview status</h3><p>{{ site.name }} is a startup concept. Charging, bookings, payments and amenities described on this website are planned and not yet operational.</p>
+  <h3>Compatibility</h3><p>Charging speed and wireless compatibility depend on your vehicle and the charging technology installed.</p>
+  <h3>Content</h3><p>Testimonials are sample content and will be replaced with genuine customer feedback.</p>
+{% else %}
+  <h1>Page not found</h1><p>The page you are looking for does not exist.</p><p><a class="btn" href="/">Return home</a></p>
+{% endif %}
+</div></main>
+</body>
+</html>
